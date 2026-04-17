@@ -1,39 +1,25 @@
-<!doctype html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="stylesheet" href="styles.css" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Tauri App</title>
-    <script type="module" src="/main.js" defer></script>
-  </head>
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gerador de Data Juliana</title>
+	<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <h1>Gerador de Data Juliana</h1>
+    
+    <div>
+      <label><input type="checkbox" id="chk-year"> Usar ano completo (YYYY)</label><br>
+      <label><input type="checkbox" id="chk-order"> Inverter ordem (Ano/Dia)</label><br>
+      <label><input type="checkbox" id="chk-left-zeros" checked> Zeros à esquerda no dia</label><br>
+      <label>Separador: <input alt="ex: /" type="text" id="inp-separator" value="" maxlength="1" size="2"></label>
+    </div>
 
-  <body>
-    <main class="container">
-      <h1>Welcome to Tauri</h1>
+    <button id="btn-generate">Gerar Data</button>
 
-      <div class="row">
-        <a href="https://tauri.app" target="_blank">
-          <img src="/assets/tauri.svg" class="logo tauri" alt="Tauri logo" />
-        </a>
-        <a
-          href="https://developer.mozilla.org/en-US/docs/Web/JavaScript"
-          target="_blank"
-        >
-          <img
-            src="/assets/javascript.svg"
-            class="logo vanilla"
-            alt="JavaScript logo"
-          />
-        </a>
-      </div>
-      <p>Click on the Tauri logo to learn more about the framework</p>
+    <h2>Resultado: <span id="result">---</span></h2>
 
-      <form class="row" id="greet-form">
-        <input id="greet-input" placeholder="Enter a name..." />
-        <button type="submit">Greet</button>
-      </form>
-      <p id="greet-msg"></p>
-    </main>
+    <script type="module" src="/main.js"></script>
   </body>
 </html>
