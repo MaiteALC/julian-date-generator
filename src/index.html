@@ -6,31 +6,65 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <title>Gerador de Data Juliana</title>
-  
+
 	<link rel="stylesheet" href="styles.css">
 </head>
 
 <body>
-    <h1>Gerador de Data Juliana</h1>
+  <h1>Escolha uma opção</h1>
+  
+  <main>
+    <button class="menu-btn" id="btn-generation-menu">Gerar Data Juliana</button>
+    <button class="menu-btn" id="btn-reversion-menu">Reveter Data Juliana</button>
     
-    <div>
-      <label><input type="checkbox" id="chk-year"> Usar ano completo (YYYY)</label>
-      <br>
+    <article class="menu is-hidden" id="generate-date-menu">
+      <button class="btn-close">X</button>
+      
+      <div class="checkbox-container">  
+        <input type="checkbox" id="chk-left-zeros" checked>
+        <label for="chk-left-zeros"> Zeros à esquerda no dia</label>
+      </div>
+      
+      <div class="checkbox-container">
+        <input type="checkbox" id="chk-order">
+        <label for="chk-order"> Inverter ordem (ano/dia)</label>
+      </div>
+      
+      <div class="checkbox-container">
+        <input type="checkbox" id="chk-year">
+        <label for="chk-year"> Usar ano completo (4 dígitos)</label>
+      </div>
 
-      <label><input type="checkbox" id="chk-order"> Inverter ordem (Ano/Dia)</label>
-      <br>
+      <div class="input-container">
+        <input type="text" id="inp-separator" value="" maxlength="1">
+        <label for="inp-separator">Separador:</label>
+      </div>
 
-      <label><input type="checkbox" id="chk-left-zeros" checked> Zeros à esquerda no dia</label>
-      <br>
+      <button id="btn-generate">Gerar Data</button>
+      
+      <h2 id="generation-result">Resultado: <span class="result">---</span></h2>
+    </article>
+    
+    <article class="menu is-hidden" id="revert-date-menu">
+      <button class="btn-close">X</button>
 
-      <label>Separador: <input type="text" id="inp-separator" value="" maxlength="1"></label>
-    </div>
+      <div class="input-container">
+        <input placeholder="ex: 126" type="number" id="inp-julian-date" min="1" max="366">
+        <label for="inp-julian-date">Dia (em data juliana)</label>
+      </div>
 
-    <button id="btn-generate">Gerar Data</button>
+      <div class="input-container">
+        <input placeholder="ex: 2026" type="number" id="inp-year" min="1" max="9999" value="2026">
+        <label for="inp-year">Ano (4 dígitos)</label>
+      </div>
 
-    <h2>Resultado: <span id="result">---</span></h2>
+      <button id="btn-revert">Calcular Data Original</button>
 
-    <script type="module" src="/main.js"></script>
-  </body>
+      <h2 id="reversion-result">Resultado: <span class="result">---</span></h2>
+    </article>
+  </main>
+
+  <script type="module" src="/main.js"></script>
+</body>
 
 </html>
