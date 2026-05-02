@@ -45,4 +45,19 @@ document.addEventListener('DOMContentLoaded', () => {
       leftZero: includeLeftZeros
     });
   });
+  
+  revertBtn.addEventListener('click', () => {
+    const julianDay = Number(document.getElementById('inp-julian-date').value);
+    const year = Number(document.getElementById('inp-year').value);
+    const result = document.querySelector('#reversion-result .result');
+
+    invoke('revert_julian_date', {year: year, julianDay: julianDay})
+      .then((date) => {
+        result.innerText = date;
+      })
+      .catch((error) => {
+        result.innerText = `Erro: ${error}
+        Valores fornecidos: Ano: ${year} Dia: ${julianDay}`;
+      });
+  });
 });
