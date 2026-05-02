@@ -46,7 +46,7 @@ h2 {
 .menu {
   position: relative;
 
-  width: clamp(300px, 70vw, 800px);
+  width: clamp(300px, 80vw, 800px);
   margin: 20px;
   padding: 16px;
   border-radius: 12px;
@@ -121,12 +121,12 @@ h2 {
   width: clamp(250px, 60vw, 750px);
   position: absolute;
   top: -10px;
-  left: 0;
+  left: 16px;
   padding: 0 5px;
 
   pointer-events: none;
   
-  font-size: 1.1rem;
+  font-size: 1rem;
   font-weight: bold;
 }
 
@@ -139,7 +139,7 @@ h2 {
   border: 1.2px solid #555;
   outline: none;
   border-radius: 6px;
-  margin-top: 20px;
+  margin: 20px;
 }
 
 .input-container input:focus {
@@ -202,4 +202,58 @@ h2 {
   font-size: 1.6em;
   display: block;
   margin-top: 10px;
+}
+
+@media screen and (max-width: 768px) {
+  h1 {
+    font-size: 1.8rem;
+  }
+
+  main {
+    padding: 10px;
+  }
+  
+  h2 {
+    margin-top: 16px;
+    font-size: 1.2rem;
+  }
+
+  .menu {
+    width: 92vw;
+    padding: 8px;
+    margin: 20px 32px;
+  }
+
+  .checkbox-container {
+    font-size: .9rem;
+    margin: 14px 2px;
+  }
+
+  .input-container,
+  .input-container input {
+    height: 42px;
+    margin: 22px 4px;
+  }
+
+  .btn-close {
+    width: 40px; 
+    height: 40px;
+  }
+
+  .menu-btn,
+  #btn-generate,
+  #btn-revert {
+    font-size: 1rem;
+    padding: 18px 12px;
+  }
+
+  #btn-generate,
+  #btn-revert {
+    margin-top: 40px;
+  }
+
+  .result {
+    font-size: 1.3rem;
+    margin-top: 8px;
+  }
 }
