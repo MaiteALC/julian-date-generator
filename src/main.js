@@ -1,15 +1,43 @@
 const { invoke } = window.__TAURI__.core;
 
 document.addEventListener('DOMContentLoaded', () => {
+  const generationMenuBtn = document.getElementById('btn-generation-menu');
+  const revertMenuBtn = document.getElementById('btn-reversion-menu');
+
+  const generationMenu = document.getElementById('generate-date-menu');
+  const revertionMenu = document.getElementById('revert-date-menu');
+
   const generateBtn = document.getElementById('btn-generate');
-  const result = document.getElementById('result');
+  const revertBtn = document.getElementById('btn-revert');
   
+  const closeGenerationMenuBtn = document.querySelector('#generate-date-menu .btn-close');
+  const closeReversionMenuBtn = document.querySelector('#revert-date-menu .btn-close');
+  
+  generationMenuBtn.addEventListener('click', () => {
+    generationMenu.classList.remove('is-hidden');
+    revertionMenu.classList.add('is-hidden');
+  });
+
+  revertMenuBtn.addEventListener('click', () => {
+    revertionMenu.classList.remove('is-hidden');
+    generationMenu.classList.add('is-hidden');
+  });
+
+  closeGenerationMenuBtn.addEventListener('click', () => {
+    generationMenu.classList.add('is-hidden');
+  });
+
+  closeReversionMenuBtn.addEventListener('click', () => {
+    revertionMenu.classList.add('is-hidden');
+  });
+
   generateBtn.addEventListener('click', async () => {
     const fullYear = document.getElementById('chk-year').checked;
     const reverseOrder = document.getElementById('chk-order').checked;
     const includeLeftZeros = document.getElementById('chk-left-zeros').checked;
     const separator = document.getElementById('inp-separator').value;
-  
+    const result = document.querySelector('#generation-result .result');
+    
     result.innerText = await invoke('calculate_date', {
       fullYear: fullYear,
       separator: separator,
