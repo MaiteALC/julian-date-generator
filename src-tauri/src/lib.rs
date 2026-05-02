@@ -1,7 +1,7 @@
-use chrono::{Datelike, Local};
-
 #[tauri::command]
 fn calculate_date(full_year: bool, separator: String, reverse_order: bool, left_zero: bool) -> String {
+    use chrono::{Datelike, Local};
+
     let now: chrono::DateTime<Local> = Local::now();
 
     let year: String = if full_year { 
@@ -23,11 +23,21 @@ fn calculate_date(full_year: bool, separator: String, reverse_order: bool, left_
     }
 }
 
+#[tauri::command]
+fn revert_julian_date(year: i32, julian_day: u32) -> Result<String, String> {
+    use chrono::NaiveDate;
+
+    let data: NaiveDate = NaiveDate::from_yo_opt(year, julian_day)
+        .ok_or("Data juliana inválida")?;
+    
+    Ok(data.format("%d/%m/%Y").to_string())
+}
+
 #[cfg_attr(mobile, tauri::mobile_entry_point)]
 pub fn run() {
     tauri::Builder::default()
         .plugin(tauri_plugin_opener::init())
-        .invoke_handler(tauri::generate_handler![calculate_date])
+        .invoke_handler(tauri::generate_handler![calculate_date, revert_julian_date])
         .run(tauri::generate_context!())
         .expect("error while running tauri application");
 }
