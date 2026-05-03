@@ -1,5 +1,21 @@
 const { invoke } = window.__TAURI__.core;
 
+function hideGenerationMenu() {
+  document.getElementById('generate-date-menu').classList.add('is-hidden');
+  
+  document.querySelector('#generation-result .result').innerText = '';
+  document.getElementById('inp-separator').value = '';
+}
+
+function hideReversionMenu() {
+  document.getElementById('revert-date-menu').classList.add('is-hidden');
+  
+  document.querySelector('#reversion-result .result').innerText = '';
+
+  document.getElementById('inp-julian-date').value = '';
+  document.getElementById('inp-year').value = '';
+}
+
 document.addEventListener('DOMContentLoaded', () => {
   const generationMenuBtn = document.getElementById('btn-generation-menu');
   const revertMenuBtn = document.getElementById('btn-reversion-menu');
@@ -15,21 +31,17 @@ document.addEventListener('DOMContentLoaded', () => {
   
   generationMenuBtn.addEventListener('click', () => {
     generationMenu.classList.remove('is-hidden');
-    revertionMenu.classList.add('is-hidden');
+    hideReversionMenu();
   });
 
   revertMenuBtn.addEventListener('click', () => {
     revertionMenu.classList.remove('is-hidden');
-    generationMenu.classList.add('is-hidden');
+    hideGenerationMenu();
   });
 
-  closeGenerationMenuBtn.addEventListener('click', () => {
-    generationMenu.classList.add('is-hidden');
-  });
+  closeGenerationMenuBtn.addEventListener('click', hideGenerationMenu);
 
-  closeReversionMenuBtn.addEventListener('click', () => {
-    revertionMenu.classList.add('is-hidden');
-  });
+  closeReversionMenuBtn.addEventListener('click', hideReversionMenu);
 
   generateBtn.addEventListener('click', async () => {
     const fullYear = document.getElementById('chk-year').checked;
