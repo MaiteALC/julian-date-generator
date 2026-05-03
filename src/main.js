@@ -17,9 +17,9 @@ function hideReversionMenu() {
 }
 
 document.addEventListener('DOMContentLoaded', () => {
-  const generationMenuBtn = document.getElementById('btn-generation-menu');
-  const revertMenuBtn = document.getElementById('btn-reversion-menu');
-
+  const openGenerationMenuBtn = document.getElementById('btn-generation-menu');
+  const openReversionMenuBtn = document.getElementById('btn-reversion-menu');
+  
   const generationMenu = document.getElementById('generate-date-menu');
   const revertionMenu = document.getElementById('revert-date-menu');
 
@@ -29,12 +29,12 @@ document.addEventListener('DOMContentLoaded', () => {
   const closeGenerationMenuBtn = document.querySelector('#generate-date-menu .btn-close');
   const closeReversionMenuBtn = document.querySelector('#revert-date-menu .btn-close');
   
-  generationMenuBtn.addEventListener('click', () => {
+  openGenerationMenuBtn.addEventListener('click', () => {
     generationMenu.classList.remove('is-hidden');
     hideReversionMenu();
   });
 
-  revertMenuBtn.addEventListener('click', () => {
+  openReversionMenuBtn.addEventListener('click', () => {
     revertionMenu.classList.remove('is-hidden');
     hideGenerationMenu();
   });
