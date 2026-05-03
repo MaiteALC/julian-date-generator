@@ -14,10 +14,10 @@ This project serves to demonstrate my pragmatic approach to problem-solving: ide
 ## 🎯 The Problem
 In the manufacturing environment, operators needed a quick, offline way to calculate Julian dates for production lot tracking. Doing this manually or relying on external networks was time-consuming and prone to human error, especially in areas with poor Wi-Fi coverage.
 
+---
+
 ## 🚀 The Solution
 A standalone mobile application that instantly converts standard calendar dates to Julian dates (and vice versa) entirely offline. 
-
----
 
 ### Key Features:
 * **100% Offline Capability:** Works perfectly in signal dead-zones on the factory floor.
