@@ -46,7 +46,7 @@ document.addEventListener('DOMContentLoaded', () => {
   generateBtn.addEventListener('click', async () => {
     const fullYear = document.getElementById('chk-year').checked;
     const reverseOrder = document.getElementById('chk-order').checked;
-    const includeLeftZeros = document.getElementById('chk-left-zeros').checked;
+    const includeLeadingZeros = document.getElementById('chk-leading-zeros').checked;
     const separator = document.getElementById('inp-separator').value;
     const result = document.querySelector('#generation-result .result');
     
@@ -54,7 +54,7 @@ document.addEventListener('DOMContentLoaded', () => {
       fullYear: fullYear,
       separator: separator,
       reverseOrder: reverseOrder,
-      leftZero: includeLeftZeros
+      leadingZeros: includeLeadingZeros
     });
   });
   

@@ -1,5 +1,5 @@
 #[tauri::command]
-fn calculate_date(full_year: bool, separator: String, reverse_order: bool, left_zero: bool) -> String {
+fn calculate_date(full_year: bool, separator: String, reverse_order: bool, leading_zeros: bool) -> String {
     use chrono::{Datelike, Local};
 
     let now: chrono::DateTime<Local> = Local::now();
@@ -10,7 +10,7 @@ fn calculate_date(full_year: bool, separator: String, reverse_order: bool, left_
         (now.year() % 100).to_string() 
     };
 
-    let ordinal_day: String = if left_zero { 
+    let ordinal_day: String = if leading_zeros { 
         format!("{:03}", now.ordinal()) 
     } else { 
         now.ordinal().to_string() 
