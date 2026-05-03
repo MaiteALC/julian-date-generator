@@ -3,14 +3,19 @@ const { invoke } = window.__TAURI__.core;
 function hideGenerationMenu() {
   document.getElementById('generate-date-menu').classList.add('is-hidden');
   
-  document.querySelector('#generation-result .result').innerText = '';
+  const result = document.querySelector('#generation-result .result')
+  result.innerText = '---';
+  result.style.color = '#54e059';
+
   document.getElementById('inp-separator').value = '';
 }
 
 function hideReversionMenu() {
   document.getElementById('revert-date-menu').classList.add('is-hidden');
   
-  document.querySelector('#reversion-result .result').innerText = '';
+  const result = document.querySelector('#reversion-result .result');
+  result.innerText = '---';
+  result.style.color = '#54e059';
 
   document.getElementById('inp-julian-date').value = '';
   document.getElementById('inp-year').value = '';
@@ -50,26 +55,40 @@ document.addEventListener('DOMContentLoaded', () => {
     const separator = document.getElementById('inp-separator').value;
     const result = document.querySelector('#generation-result .result');
     
-    result.innerText = await invoke('calculate_date', {
-      fullYear: fullYear,
-      separator: separator,
-      reverseOrder: reverseOrder,
-      leadingZeros: includeLeadingZeros
-    });
+    try {
+      const generatedDate = await invoke('calculate_date', {
+        fullYear: fullYear,
+        separator: separator,
+        reverseOrder: reverseOrder,
+        leadingZeros: includeLeadingZeros
+      });
+
+      result.innerText = generatedDate;
+
+    } catch (e) {
+      result.style.color = 'red';
+
+      result.innerText = `Erro: ${e}
+      Valores fornecidos: Ano Completo = ${fullYear} Separador = "${separator}" 
+      Ordem Reversa = ${reverseOrder} Zeros à Esquerda: ${includeLeadingZeros}`;
+    }
   });
   
-  revertBtn.addEventListener('click', () => {
+  revertBtn.addEventListener('click', async () => {
     const julianDay = Number(document.getElementById('inp-julian-date').value);
     const year = Number(document.getElementById('inp-year').value);
     const result = document.querySelector('#reversion-result .result');
 
-    invoke('revert_julian_date', {year: year, julianDay: julianDay})
-      .then((date) => {
-        result.innerText = date;
-      })
-      .catch((error) => {
-        result.innerText = `Erro: ${error}
-        Valores fornecidos: Ano: ${year} Dia: ${julianDay}`;
-      });
+    try {
+      const originalDate = await invoke('revert_julian_date', {year: year, julianDay: julianDay});
+
+      result.innerText = originalDate;
+
+    } catch (e) {
+      result.style.color = 'red';
+
+      result.innerText = `Erro: ${e}
+      Valores fornecidos: Ano = ${year} Dia = ${julianDay}`;
+    }
   });
 });
