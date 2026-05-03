@@ -36,7 +36,6 @@ fn revert_julian_date(year: i32, julian_day: u32) -> Result<String, String> {
 #[cfg_attr(mobile, tauri::mobile_entry_point)]
 pub fn run() {
     tauri::Builder::default()
-        .plugin(tauri_plugin_opener::init())
         .invoke_handler(tauri::generate_handler![calculate_date, revert_julian_date])
         .run(tauri::generate_context!())
         .expect("error while running tauri application");
