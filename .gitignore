@@ -27,3 +27,5 @@ dist-ssr
 # Sensitive data
 *.keystore
 key.properties
+
+!src-tauri/gen/android/app/build.gradle.kts
