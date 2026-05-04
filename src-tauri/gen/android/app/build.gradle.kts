@@ -16,6 +16,15 @@ val tauriProperties = Properties().apply {
 android {
     compileSdk = 36
     namespace = "com.maite.julian_date"
+
+    splits {
+        abi {
+            isEnable = true
+            reset()
+            include("arm64-v8a", "armeabi-v7a", "x86", "x86_64")
+            isUniversalApk = true 
+        }
+    }
     
     defaultConfig {
         manifestPlaceholders["usesCleartextTraffic"] = "false"
