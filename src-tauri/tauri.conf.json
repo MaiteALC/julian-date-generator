@@ -1,8 +1,8 @@
 {
   "$schema": "https://schema.tauri.app/config/2",
-  "productName": "Gerador de Data Juliana",
+  "productName": "Data Juliana",
   "version": "1.0.0",
-  "identifier": "com.maite.julian-date-generator",
+  "identifier": "com.maite.julian-date",
   "build": {
     "frontendDist": "../src"
   },
@@ -10,7 +10,7 @@
     "withGlobalTauri": true,
     "windows": [
       {
-        "title": "Gerador de Data Juliana",
+        "title": "Data Juliana",
         "width": 800,
         "height": 600
       }

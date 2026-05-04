@@ -1653,7 +1653,7 @@ dependencies = [
 ]
 
 [[package]]
-name = "julian-date-generator"
+name = "julian-date"
 version = "1.0.0"
 dependencies = [
  "chrono",
