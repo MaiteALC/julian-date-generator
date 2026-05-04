@@ -103,3 +103,5 @@ jobs:
         with:
           tag_name: ${{ github.ref_name }}
           files: src-tauri/gen/android/app/build/outputs/apk/universal/release/app-universal-release.apk
+          draft: true
+          prerelease: false
