@@ -106,5 +106,7 @@ jobs:
         with:
           tag_name: ${{ github.ref_name }}
           files: src-tauri/gen/android/app/build/outputs/apk/universal/release/app-universal-release.apk
+          name: 'Julian Date App ${{ github.ref_name }} - Android APK'
+          body: 'See the CHANGELOG.md for more version details.'
           draft: true
           prerelease: false
