@@ -84,11 +84,11 @@ jobs:
         with:
           workspaces: src-tauri
 
-      - name: Initialize Android project
-        run: npm run tauri android init
-
       - name: Install frontend dependencies (NPM)
         run: npm install
+
+      - name: Initialize Android project
+        run: npm run tauri android init
 
       - name: Keystore setup
         run: echo "${{ secrets.KEYSTORE_BASE64 }}" | base64 --decode > /tmp/release.keystore
