@@ -17,3 +17,5 @@ e este projeto adere ao [Semantic Versioning](https://semver.org/lang/pt-BR/).
 - **Identidade Visual**: Implementação do primeiro ícone oficial.
 
 - **Distribuição Android (APK)**: Pipeline de CI/CD automatizada fornecendo suporte oficial para o sistema Android.
+
+- **Distribuição Desktop (Windows e Linux)**: Pipeline de CI/CD automatizada fornecendo suporte oficial para Windows (instaladores `.exe` e `.msi`) e distribuições Linux (arquivos `.deb` e `.AppImage`)
