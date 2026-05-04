@@ -84,6 +84,9 @@ jobs:
         with:
           workspaces: src-tauri
 
+      - name: Initialize Android project
+        run: npm run tauri android init
+
       - name: Install frontend dependencies (NPM)
         run: npm install
 
