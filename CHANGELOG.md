@@ -1,0 +1,19 @@
+# Changelog
+
+Todos os projetos notáveis e alterações nesta aplicação serão documentados neste arquivo.
+
+O formato baseia-se em [Keep a Changelog](https://keepachangelog.com/pt-BR/1.0.0/),
+e este projeto adere ao [Semantic Versioning](https://semver.org/lang/pt-BR/).
+
+## [1.0.0] - 2026-05-04
+
+### Adicionado
+- **Geração de Data Juliana**: Motor principal capaz de converter datas atuais do calendário gregoriano para o formato de Data Juliana (Dia sequencial do ano), tambem sendo possível customizações no formato de saída da data calculada.
+
+- **Reversão de Data Juliana**: Funcionalidade para converter uma Data Juliana de volta para o formato de calendário padrão (DD/MM/AAAA).
+
+- **Validação de Anos Bissextos**: O motor matemático (escrito em Rust) possui validação estrita, suportando corretamente a variação do dia 29 de fevereiro e impedindo o cálculo de dias inválidos (como o dia 366 em anos não-bissextos).
+
+- **Identidade Visual**: Implementação do primeiro ícone oficial.
+
+- **Distribuição Android (APK)**: Pipeline de CI/CD automatizada fornecendo suporte oficial para o sistema Android.
