@@ -7,8 +7,11 @@ yarn-error.log*
 pnpm-debug.log*
 lerna-debug.log*
 
+# Ignore Android build files
 src-tauri/target/
-src-tauri/gen/
+src-tauri/gen/android/app/build/
+src-tauri/gen/android/.gradle/
+
 node_modules/
 dist/
 dist-ssr
@@ -27,5 +30,3 @@ dist-ssr
 # Sensitive data
 *.keystore
 key.properties
-
-!src-tauri/gen/android/app/build.gradle.kts
