@@ -5,7 +5,7 @@ Todos os projetos notáveis e alterações nesta aplicação serão documentados
 O formato baseia-se em [Keep a Changelog](https://keepachangelog.com/pt-BR/1.0.0/),
 e este projeto adere ao [Semantic Versioning](https://semver.org/lang/pt-BR/).
 
-## [1.0.0] - 2026-05-04
+## [1.0.0] - 2026-05-05
 
 ### Adicionado
 - **Geração de Data Juliana**: Motor principal capaz de converter datas atuais do calendário gregoriano para o formato de Data Juliana (Dia sequencial do ano), tambem sendo possível customizações no formato de saída da data calculada.
