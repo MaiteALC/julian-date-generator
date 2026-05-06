@@ -5,6 +5,11 @@ Todos os projetos notáveis e alterações nesta aplicação serão documentados
 O formato baseia-se em [Keep a Changelog](https://keepachangelog.com/pt-BR/1.0.0/),
 e este projeto adere ao [Semantic Versioning](https://semver.org/lang/pt-BR/).
 
+## [1.0.1] - 2026-05-06
+
+### Corrigido
+- **Ícone no Android**: Alterado o ícone exibido em dispositivos Android (anteriormente o ícone padrão do framework Tauri) para o ícone oficial correto.
+
 ## [1.0.0] - 2026-05-05
 
 ### Adicionado
