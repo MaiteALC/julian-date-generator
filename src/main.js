@@ -1,4 +1,5 @@
 const { invoke } = window.__TAURI__.core;
+const defaultResultColor = '#54e059';
 
 function hideGenerationMenu() {
   document.getElementById('generate-date-menu').classList.add('is-hidden');
@@ -63,6 +64,7 @@ document.addEventListener('DOMContentLoaded', () => {
         leadingZeros: includeLeadingZeros
       });
 
+      result.style.color = defaultResultColor;
       result.innerText = generatedDate;
 
     } catch (e) {
@@ -82,6 +84,7 @@ document.addEventListener('DOMContentLoaded', () => {
     try {
       const originalDate = await invoke('revert_julian_date', {year: year, julianDay: julianDay});
 
+      result.style.color = defaultResultColor;
       result.innerText = originalDate;
 
     } catch (e) {
