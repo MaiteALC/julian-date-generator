@@ -5,6 +5,11 @@ Todos os projetos notáveis e alterações nesta aplicação serão documentados
 O formato baseia-se em [Keep a Changelog](https://keepachangelog.com/pt-BR/1.0.0/),
 e este projeto adere ao [Semantic Versioning](https://semver.org/lang/pt-BR/).
 
+## [1.0.2] - 2026-05-12
+
+### Corrigido
+- **Cor do resultado:** Corrigido bug que fazia com que os resultados se mantivessem na cor vermelha indefinidamente caso uma mensagem de erro fosse exibida imediatamente antes de um cálculo correto.
+
 ## [1.0.1] - 2026-05-06
 
 ### Corrigido

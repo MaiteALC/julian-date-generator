@@ -1,6 +1,6 @@
 [package]
 name = "julian-date"
-version = "1.0.1"
+version = "1.0.2"
 description = "A Tauri app that instantly converts standard calendar dates to Julian dates (and vice versa) entirely offline."
 authors = ["Maite"]
 edition = "2024"
