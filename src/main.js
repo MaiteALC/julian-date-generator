@@ -1,24 +1,18 @@
 const { invoke } = window.__TAURI__.core;
+const defaultResultColor = '#54e059';
 
-function hideGenerationMenu() {
-  document.getElementById('generate-date-menu').classList.add('is-hidden');
+function hideMenu(menuElement) {
+  menuElement.classList.add('is-hidden');
   
-  const result = document.querySelector('#generation-result .result')
+  const result = menuElement.querySelector('.result');
   result.innerText = '---';
-  result.style.color = '#54e059';
-
-  document.getElementById('inp-separator').value = '';
+  result.style.color = defaultResultColor;
+  
+  menuElement.querySelectorAll('input[type="text"], input[type="number"]').forEach(input => input.value = '');
 }
 
-function hideReversionMenu() {
-  document.getElementById('revert-date-menu').classList.add('is-hidden');
-  
-  const result = document.querySelector('#reversion-result .result');
-  result.innerText = '---';
-  result.style.color = '#54e059';
-
-  document.getElementById('inp-julian-date').value = '';
-  document.getElementById('inp-year').value = '';
+function showMenu(menuElement) {
+  menuElement.classList.remove('is-hidden');
 }
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -26,7 +20,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const openReversionMenuBtn = document.getElementById('btn-reversion-menu');
   
   const generationMenu = document.getElementById('generate-date-menu');
-  const revertionMenu = document.getElementById('revert-date-menu');
+  const reversionMenu = document.getElementById('revert-date-menu');
 
   const generateBtn = document.getElementById('btn-generate');
   const revertBtn = document.getElementById('btn-revert');
@@ -34,19 +28,23 @@ document.addEventListener('DOMContentLoaded', () => {
   const closeGenerationMenuBtn = document.querySelector('#generate-date-menu .btn-close');
   const closeReversionMenuBtn = document.querySelector('#revert-date-menu .btn-close');
   
-  openGenerationMenuBtn.addEventListener('click', () => {
-    generationMenu.classList.remove('is-hidden');
-    hideReversionMenu();
+  openGenerationMenuBtn.addEventListener('click', () => { 
+    hideMenu(reversionMenu); 
+    showMenu(generationMenu);
+  });
+  
+  openReversionMenuBtn.addEventListener('click', () => { 
+    hideMenu(generationMenu); 
+    showMenu(reversionMenu);
+  });
+  
+  closeGenerationMenuBtn.addEventListener('click', () => { 
+    hideMenu(generationMenu);
   });
 
-  openReversionMenuBtn.addEventListener('click', () => {
-    revertionMenu.classList.remove('is-hidden');
-    hideGenerationMenu();
+  closeReversionMenuBtn.addEventListener('click', () => { 
+    hideMenu(reversionMenu); 
   });
-
-  closeGenerationMenuBtn.addEventListener('click', hideGenerationMenu);
-
-  closeReversionMenuBtn.addEventListener('click', hideReversionMenu);
 
   generateBtn.addEventListener('click', async () => {
     const fullYear = document.getElementById('chk-year').checked;
@@ -63,6 +61,7 @@ document.addEventListener('DOMContentLoaded', () => {
         leadingZeros: includeLeadingZeros
       });
 
+      result.style.color = defaultResultColor;
       result.innerText = generatedDate;
 
     } catch (e) {
@@ -82,6 +81,7 @@ document.addEventListener('DOMContentLoaded', () => {
     try {
       const originalDate = await invoke('revert_julian_date', {year: year, julianDay: julianDay});
 
+      result.style.color = defaultResultColor;
       result.innerText = originalDate;
 
     } catch (e) {
